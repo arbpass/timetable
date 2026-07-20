@@ -24,6 +24,7 @@
     --reasoning: #7ED43F;
     --mock: #FF9F4A;
     --sleep: #6FA8FF;
+    --windup: #D9A6E0;
     --red: #E15C5C;
     --green: #4ADE94;
     --radius: 3px;
@@ -481,11 +482,12 @@
   // ---------------------------------------------------------------
   const schedule = [
     { time:"07:30", end:"10:00", label:"07:30 AM – 10:00 AM", duration:"2.5 hours", focus:"English",       details:"Editorial + perfection + grammar rev", tag:"english",   icon:"💬" },
-    { time:"10:30", end:"12:30", label:"10:30 AM – 12:30 PM", duration:"2 hours",   focus:"Quant",         details:"Speed maths 30 min + revise formulas, then solve one pdf in 20 min", tag:"quant", icon:"🛡️" },
-    { time:"13:00", end:"15:00", label:"01:00 PM – 03:00 PM", duration:"2 hours",   focus:"GA",            details:"CA video ×2 + BA 10 pgs", tag:"ga", icon:"🧠" },
-    { time:"17:00", end:"19:00", label:"05:00 PM – 07:00 PM", duration:"2 hours",   focus:"Reasoning",     details:"Practice with timer", tag:"reasoning", icon:"📊" },
-    { time:"21:00", end:"24:00", label:"09:00 PM – 12:00 AM", duration:"3 hours",   focus:"Mock / Buffer", details:"Check the progress of Mains+Mock", tag:"mock", icon:"📋" },
-    { time:"00:00", end:"07:00", label:"12:00 AM – 07:00 AM", duration:"7 hours",   focus:"Sleep",         details:"Revise fraction + tables + cubes + primes + Vocab + GA", tag:"sleep", icon:"🌙" },
+    { time:"10:30", end:"12:30", label:"10:30 AM – 12:30 PM", duration:"2 hours",   focus:"GA",            details:"CA video ×2 + BA 10 pgs", tag:"ga", icon:"🧠" },
+    { time:"13:30", end:"15:30", label:"01:30 PM – 03:30 PM", duration:"2 hours",   focus:"Reasoning",     details:"Practice with timer", tag:"reasoning", icon:"📊" },
+    { time:"17:00", end:"19:30", label:"05:00 PM – 07:30 PM", duration:"2.5 hours", focus:"Quant",         details:"Speed maths 30 min + revise formulas, then solve one pdf in 20 min", tag:"quant", icon:"🛡️" },
+    { time:"20:00", end:"23:00", label:"08:00 PM – 11:00 PM", duration:"3 hours",   focus:"Mock / Mains",  details:"Check the progress of Mains+Mock", tag:"mock", icon:"📋" },
+    { time:"23:00", end:"24:00", label:"11:00 PM – 12:00 AM", duration:"1 hour",    focus:"Wind Up / Light Revision", details:"Revise fraction + tables + cubes + primes + Vocab + GA", tag:"windup", icon:"🌙" },
+    { time:"00:00", end:"07:00", label:"12:00 AM – 07:00 AM", duration:"7 hours",   focus:"Sleep",         details:"—", tag:"sleep", icon:"😴" },
   ];
 
   const dos = [
@@ -518,6 +520,7 @@
     ga: "var(--ga)",
     reasoning: "var(--reasoning)",
     mock: "var(--mock)",
+    windup: "var(--windup)",
     sleep: "var(--sleep)"
   };
 
