@@ -350,7 +350,124 @@
     margin-top: 4px;
   }
 
-  /* ---------- Banner ---------- */
+  /* ---------- Subject Breakdown ---------- */
+  .subjects{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .subject-card{
+    background: var(--panel);
+    border: 1px solid var(--divider);
+    border-left: 3px solid var(--sub-color, var(--gold));
+    border-radius: var(--radius);
+    padding: 22px;
+  }
+  .subject-head{
+    display:flex;
+    align-items:baseline;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .subject-head .icon{ font-size: 16px; }
+  .subject-head h3{
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sub-color, var(--gold-bright));
+  }
+  .subject-head .dur{
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted-solid);
+  }
+  .subject-daily{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .subject-daily .lbl{
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sub-color, var(--gold));
+    margin-right: 6px;
+  }
+  .subject-note{
+    font-size: 13px;
+    color: var(--muted-solid);
+    line-height: 1.6;
+    margin-bottom: 4px;
+  }
+  .subject-note b{ color: var(--ink); font-weight: 600; }
+  .subject-note .lbl{
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sub-color, var(--gold));
+    margin-right: 6px;
+  }
+  .subject-table{
+    margin-top: 14px;
+    border: 1px solid var(--divider);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .subject-table .trow{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--divider);
+  }
+  .subject-table .trow:last-child{ border-bottom: none; }
+  .subject-table .trow.head{
+    background: var(--panel-alt);
+  }
+  .subject-table .trow.head .cell{
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--sub-color, var(--gold-bright));
+  }
+  .subject-table .cell{
+    padding: 9px 12px;
+    font-size: 12.5px;
+    color: var(--ink);
+    border-right: 1px solid var(--divider);
+  }
+  .subject-table .cell:last-child{ border-right: none; }
+  .subject-table .cell:empty::before{ content:"—"; color: var(--muted-solid); }
+
+  .important-list{
+    margin-top: 12px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 16px;
+  }
+  .important-list .item{
+    font-size: 13px;
+    color: var(--ink);
+    display:flex;
+    gap: 8px;
+  }
+  .important-list .item .n{
+    font-family: var(--mono);
+    color: var(--sub-color, var(--gold));
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  @media (max-width: 720px){
+    .subjects{ grid-template-columns: 1fr; }
+    .important-list{ grid-template-columns: 1fr; }
+  }
+
+
   .banner{
     text-align:center;
     padding: 50px 0;
@@ -430,13 +547,75 @@
       <div>
         <div class="flap-row" id="clock"></div>
       </div>
-      <div class="next-line">Next up — <b id="nextTask">—</b></div>
     </div>
   </header>
 
-  <section id="timetable-section">
-    <div class="section-head"><span class="tri">▶</span><h2>Daily Timetable — Warrior Schedule</h2></div>
-    <div class="timetable" id="timetable"></div>
+  <section id="subjects-section">
+    <div class="section-head"><span class="tri">▶</span><h2>Subject Breakdown</h2></div>
+    <div class="subject-note" style="margin-bottom:18px; font-size:13.5px;"><b>Daily sectional tests or MOCKS + 1hr MAINS Preparation</b> — separately for all 3 subjects</div>
+    <div class="subjects">
+
+      <div class="subject-card" style="--sub-color: var(--reasoning)">
+        <div class="subject-head"><span class="icon">📊</span><h3>Reasoning</h3><span class="dur">2 hrs</span></div>
+        <div class="subject-daily"><span class="lbl">Daily</span>3 topics with timer, 10-15 ques each</div>
+        <div class="subject-note"><span class="lbl">Pre</span>Puzzle from YesOfficer &amp; YouTube for clerk, Miscellaneous from YesOfficer</div>
+        <div class="subject-note"><span class="lbl">Mains</span>Reasoning reloaded</div>
+        <div class="subject-table">
+          <div class="trow head"><div class="cell">Prelims (20min)</div><div class="cell">Mains (35min, 40 ques, 60 marks)</div></div>
+          <div class="trow"><div class="cell">20-25 puzzles &amp; SA</div><div class="cell">Puzzle — 35 marks</div></div>
+          <div class="trow"><div class="cell">10-15 miscellaneous</div><div class="cell">Critical reasoning — 10 marks max</div></div>
+          <div class="trow"><div class="cell">Target: 32+ attempts in 15min</div><div class="cell">Miscellaneous — 15 marks</div></div>
+        </div>
+      </div>
+
+      <div class="subject-card" style="--sub-color: var(--quant)">
+        <div class="subject-head"><span class="icon">🛡️</span><h3>Quant</h3><span class="dur">2.5 hrs</span></div>
+        <div class="subject-daily"><span class="lbl">Daily</span>1hr DI + 1hr Arithmetic + 45min Speed Math</div>
+        <div class="subject-note"><span class="lbl">Pre</span>DI from YouTube for clerk &amp; UDAAN, Arithmetic and SM from YesOfficer</div>
+        <div class="subject-note"><span class="lbl">Mains</span>Operation Mains (it doesn't happen topic-wise)</div>
+        <div class="subject-table">
+          <div class="trow head"><div class="cell">Prelims (35 ques in 20min)</div><div class="cell">Mains (40 ques in 35min)</div></div>
+          <div class="trow"><div class="cell">One liners (12-15 ques) in 8min</div><div class="cell">30×1 ques</div></div>
+          <div class="trow"><div class="cell">DI (2 sets - 10 ques) in 7min</div><div class="cell">10×2 ques</div></div>
+          <div class="trow"><div class="cell">Arithmetic (10 ques) in 5min</div><div class="cell"></div></div>
+        </div>
+      </div>
+
+      <div class="subject-card" style="--sub-color: var(--english)">
+        <div class="subject-head"><span class="icon">💬</span><h3>English</h3><span class="dur">2.5 hrs</span></div>
+        <div class="subject-daily"><span class="lbl">Daily</span>1hr Editorial + 1hr Perfection + 30min Grammar</div>
+        <div class="subject-note">Perfection 1hr daily — 30min per topic</div>
+        <div class="subject-note">Editorial daily for RC &amp; Phrasal verbs &amp; Idioms — 30min</div>
+        <div class="subject-note">Grammar 120 rules + ED video — 30min</div>
+        <div class="subject-table">
+          <div class="trow head"><div class="cell">80%</div><div class="cell">20%</div></div>
+          <div class="trow"><div class="cell">RC — 50 (30pre + 20mains)</div><div class="cell">Word swap, word order</div></div>
+          <div class="trow"><div class="cell">PJ — 50 (30pre + 20mains)</div><div class="cell">Phrase rearrangement</div></div>
+          <div class="trow"><div class="cell">CT — 50 (30pre + 20mains)</div><div class="cell">Match the column</div></div>
+          <div class="trow"><div class="cell">ED — 500</div><div class="cell">Word usage</div></div>
+        </div>
+      </div>
+
+      <div class="subject-card" style="--sub-color: var(--ga)">
+        <div class="subject-head"><span class="icon">🧠</span><h3>GA (News)</h3></div>
+        <div class="subject-daily"><span class="lbl">Daily</span>45min CA + 45min Static GK (anyone)</div>
+        <div class="subject-note">Video → PDF → Weekly PDF → Monthly PDF (MCQ PDF) — quiz is important</div>
+        <div class="subject-note" style="margin-top:10px;"><span class="lbl">Most important</span></div>
+        <div class="important-list">
+          <div class="item"><span class="n">01</span>Government schemes</div>
+          <div class="item"><span class="n">02</span>GI tags</div>
+          <div class="item"><span class="n">03</span>Ramsar sites</div>
+          <div class="item"><span class="n">04</span>Refineries</div>
+          <div class="item"><span class="n">05</span>TRs</div>
+          <div class="item"><span class="n">06</span>UNESCO Sites</div>
+          <div class="item"><span class="n">07</span>National Parks</div>
+          <div class="item"><span class="n">08</span>States</div>
+          <div class="item"><span class="n">09</span>Festivals &amp; Dance forms</div>
+          <div class="item"><span class="n">10</span>Polity</div>
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <section id="rules-section">
@@ -476,19 +655,6 @@
 </div>
 
 <script>
-  // ---------------------------------------------------------------
-  // EDIT THIS DATA TO KEEP IT IN SYNC WITH YOUR OWN SCHEDULE
-  // time / end must be 24h "HH:MM".
-  // ---------------------------------------------------------------
-  const schedule = [
-    { time:"08:00", end:"10:00", label:"08:00 AM – 10:00 AM", duration:"2 hours", focus:"Reasoning", details:"Puzzle + Miscellaneous 10 questions each", tag:"reasoning", icon:"📊" },
-    { time:"11:00", end:"13:30", label:"11:00 AM – 01:30 PM", duration:"2.5 hours", focus:"Quant",     details:"1hr DI + 1hr Anyone Group + 40min Speed Math", tag:"quant", icon:"🛡️" },
-    { time:"14:30", end:"16:30", label:"02:30 PM – 04:30 PM", duration:"2 hours", focus:"English",   details:"1hr Editorial + 1hr Perfection/Grammar + 15min vocab revise", tag:"english", icon:"💬" },
-    { time:"17:00", end:"19:00", label:"05:00 PM – 07:00 PM", duration:"2 hours", focus:"GA",        details:"45min CA + 45min Static GK + 30min Prev. CA", tag:"ga", icon:"🧠" },
-    { time:"21:30", end:"01:30", label:"09:30 PM – 01:30 AM", duration:"4 hours", focus:"Buffer",    details:"3hrs Mains/Mock", tag:"mock", icon:"📋" },
-    { time:"01:30", end:"07:30", label:"01:30 AM – 07:30 AM", duration:"6 hours", focus:"Sleep",     details:"—", tag:"sleep", icon:"😴" },
-  ];
-
   const dos = [
     "Make studies the most interesting thing to do",
     "Stare walls at free time",
@@ -512,80 +678,6 @@
     { glyph:"⚔️", name:"Action", sub:"Execution" },
     { glyph:"⭐", name:"Legacy", sub:"Impact" },
   ];
-
-  const tagColors = {
-    english: "var(--english)",
-    quant: "var(--quant)",
-    ga: "var(--ga)",
-    reasoning: "var(--reasoning)",
-    mock: "var(--mock)",
-    windup: "var(--windup)",
-    sleep: "var(--sleep)"
-  };
-
-  function toMinutes(hhmm){ const [h,m] = hhmm.split(":").map(Number); return h*60+m; }
-  function nowMinutes(){ const d = new Date(); return d.getHours()*60 + d.getMinutes(); }
-
-  function isActive(item, nowM){
-    const start = toMinutes(item.time);
-    let end = toMinutes(item.end);
-    if (end <= start) end += 24*60;
-    let n = nowM;
-    if (n < start) n += 24*60;
-    return n >= start && n < end;
-  }
-  function isPast(item, nowM){
-    const start = toMinutes(item.time);
-    const end = toMinutes(item.end);
-    if (end <= start) return false;
-    return nowM >= end;
-  }
-
-  function renderTimetable(){
-    const el = document.getElementById("timetable");
-    const nextEl = document.getElementById("nextTask");
-    el.innerHTML = "";
-    const nowM = nowMinutes();
-    let nextItem = null;
-
-    schedule.forEach(item => {
-      const row = document.createElement("div");
-      row.className = "row";
-      row.style.setProperty("--tag-color", tagColors[item.tag] || "var(--muted-solid)");
-
-      const active = isActive(item, nowM);
-      const past = isPast(item, nowM);
-      if (active) row.classList.add("now");
-      if (past && !active) row.classList.add("done");
-
-      row.innerHTML = `
-        <div class="icon">${item.icon}</div>
-        <div class="bar"></div>
-        <div class="content">
-          <div class="row-top">
-            <span class="focus">${item.focus}</span>
-            <span class="duration">${item.duration}</span>
-          </div>
-          <div class="row-time">${item.label}</div>
-          <div class="row-details">${item.details}</div>
-        </div>
-      `;
-      el.appendChild(row);
-
-      if (!active && !past && !nextItem) nextItem = item;
-    });
-
-    if (nextEl){
-      const active = schedule.find(i => isActive(i, nowM));
-      if (nextItem){
-        nextEl.textContent = `${nextItem.focus} at ${nextItem.label.split("–")[0].trim()}`;
-      } else if (active){
-        nextEl.textContent = "Nothing after this — close the day well";
-      } else if (schedule[0]) {
-        nextEl.textContent = `${schedule[0].focus} at ${schedule[0].label.split("–")[0].trim()}`;
-      }
-    }
-  }
 
   function renderLists(){
     document.getElementById("doList").innerHTML = dos.map(d => `<li><span class="mark">+</span>${d}</li>`).join("");
@@ -640,10 +732,8 @@
 
   renderLists();
   renderPillars();
-  renderTimetable();
   updateClock();
   setInterval(updateClock, 1000);
-  setInterval(renderTimetable, 30000);
 </script>
 
 </body>
